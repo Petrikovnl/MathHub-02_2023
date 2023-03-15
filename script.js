@@ -288,3 +288,171 @@ for (let i = 0; i < choosedEl.length; i++) {
     choosedEl[i].addEventListener("click", eventFunc)
 }
 //choosedEl[2].removeEventListener("click", eventFunc) - удаление обработчика событий
+
+// console.log( test1(3, 2))
+
+// function test1(a, b) {
+
+//     let pow = a ** b
+
+// }
+
+// console.log( test2(3, 2))
+
+// const test2 = function(a, b) {
+
+//     let pow = a ** b
+
+// }
+
+
+// const testValue = "string"
+
+// function test(str) {
+
+//     return str + null
+
+// }
+
+// console.log(test(testValue))
+
+// const changeFunc = (num) => {
+
+//     const result = (num / (Math.random() * 10)).toFixed
+
+// }
+
+// console.log(changeFunc(47))
+
+// console.log(5 ** '2')
+// const userText = prompt("give me number!")
+
+// // пользователь отменил ввод
+
+// console.log(userText - "7")
+// const num = 21
+
+// const result = (!null) ? (21 % 5) : ( 21 % 3)
+
+// console.log(result)
+// console.log(getArr())
+
+// function getArr() {
+
+//     const result = []
+
+//     for (let i = 0; i < 3; i++) {
+
+//         result.push(i + 5)
+
+//     }
+
+//     return result
+
+// }
+// console.log(getRandomLessTen())
+
+// function getRandomLessTen() {
+
+//     const num = 0
+
+//     num += (Math.random * 10).toFixed()
+
+//     return num
+
+// }
+// console.log(getRandomLessTen())
+
+// const changeFunc = (num) => {
+
+//     const result = (num / (Math.random() * 10)).toFixed
+
+// }
+
+// console.log(getRandomLessTen())
+// const timeIsOver = () => {
+//     alert("Time is out!")
+// }
+// // setTimeout(timeIsOver, 2000)
+// // const alarm = setInterval(timeIsOver, 3000)
+
+// const alarm = setInterval(() => {
+//     let wantToSleep = confirm("Хотите ли вы спать?")
+//     if (wantToSleep) {
+//         console.log("tic")
+//     }  else {
+//         clearInterval(alarm)
+//     }
+// }, 3000);
+// clearInterval(alarm)
+
+const postBlock = document.querySelector(".post_block-container")
+const showPostsBTN = document.querySelector(".post_block button")
+
+// const   postTitle = document.querySelector(".post_block-container h3")
+// const   postBody = document.querySelector(".post_block-container span")
+
+// const func = () => {
+//     return 5
+// }
+//same as
+// const func = () => 5
+
+function addPost(title, body) {
+    const postTitle = document.createElement("h3")
+    const postBody = document.createElement("span")
+    const postItem = document.createElement("p")
+
+    postItem.append(postTitle, postBody)
+    postBlock.append(postItem)
+
+    postTitle.innerText = title
+    postBody.innerText = body
+}
+
+function getPosts() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+        .then(res => res.json())
+        // {
+        // console.log(res)
+        // return res.json()
+        // })
+        .then(data => {
+            for (item of data) {
+                addPost(item.title, item.body)
+            }
+            // addPost(data[7].title, data[7].body)
+            // console.log(data)
+        })
+        .catch(err => console.log(err.message))
+    //     {
+    //     console.log(err)
+    //     console.log(err.message)
+    // })
+}
+
+showPostsBTN.onclick = () => { getPosts() }
+
+// function createPost(title, body, userId) {
+//     fetch("https://jsonplaceholder.typicode.com/posts", {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             // title: title,
+//             // body: body,
+//             // userId: userId,
+//             title,
+//             body,
+//             userId,
+//         }),
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8'
+//         },
+//     })
+//     .then(res => {
+//         console.log(res)
+//         // return res.json()
+//     })
+//     .catch(err => console.log(err.message))
+// }
+
+// createPost("title","body",15)

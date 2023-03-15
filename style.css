@@ -117,3 +117,16 @@ footer {
 .choosed_element {
     border: 3px solid black;
 }
+.post_block {
+    max-width: 600px;
+    margin: 20px auto;
+}
+.post_block h2 {
+    text-align: center;
+}
+.post_block-container > * {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightblue;
+}
