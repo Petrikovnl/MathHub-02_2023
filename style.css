@@ -8,13 +8,20 @@
 header {
     background-color: lightgray;
     height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
 }
+/* main {
+    /* margin-top: auto; */
+} */
 nav {
     /* border: 5px dotted black; */
     /* width: min-content; */
     height: inherit;
+    width: inherit;
     display: flex;
-    /* justify-content: start; */
+    justify-content: start;
     align-items: center;
 }
 nav > a {
